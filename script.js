@@ -50,15 +50,24 @@ var alphabet = [
 ];
 
 const words = [
-  ["chat", "chien", "cheval", "elephant"],
-  ["football", "tennis", "volleyball"],
-  ["tunisie", "algerie", "maroc"],
+  ["baleine", "eucalyptus", "coquillage", "elephant"],
+  ["basketball", "tennis", "natation"],
+  ["tunis", "algerie", "paris"],
 ];
 
 const hints = [
-  ["chat ?", "chien ?", "cheval ?", "elephant?"],
-  ["football ?", "tennis ?", "volleyball ?"],
-  ["tunisie ?", "algerie ?", "maroc ?"],
+  [
+    "Quel est le plus grand mammifère marin de la planète ?",
+    "Que mange le koala ?",
+    "Quel est l'animal le plus vieux connu sur Terre?",
+    "De quel animal la taupe dorée est-elle une cousine éloignée?",
+  ],
+  [
+    "Dans quel sport s est illustré Michael Jordan ?",
+    "Dans quel sport s est illustrée Steffi Graf ?",
+    "vDans quel sport s est illustrée Dawn Fraser ?",
+  ],
+  ["capital de tunisie ?", "capital algerie ?", "capital de france ?"],
 ];
 // **************Afficher Le bouton start**********
 function showStartButton() {
