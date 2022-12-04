@@ -31,14 +31,15 @@
     <div id="Game">
         <div id="Solution" class="d-flex flex-column">
             <h3 class="d-none text-white" id="hint"></h3>
-            <h5 class="d-none" id="liveSection">
-                <span style="margin-right: 10px" id="lives"></span>lives
-            </h5>
             <div class="d-flex justify-content-center">
                 <div id="correctWord" class="input-group mb-5 w-50"></div>
             </div>
+            <div id="alphabets" class="d-flex justify-content-center"></div>
+            <h5 class="d-none" id="liveSection">
+                You Have <span style="margin-right: 10px" id="lives"></span>lives
+            </h5>
+            <canvas id="hangman">hangman</canvas>
         </div>
-        <div id="alphabets" class="d-flex justify-content-center"></div>
 
         <button class="btn btn-light d-none" id="PlayAgain">Play Again</button>
     </div>
