@@ -10,7 +10,8 @@ lives = document.getElementById("lives");
 liveSection = document.getElementById("liveSection");
 correctWord = document.getElementById("correctWord");
 PlayAgain = document.getElementById("PlayAgain");
-
+const canvas = document.getElementById("hangman");
+canvas.classList.add("d-none");
 var choosenCategory = "";
 let randomGame = -1;
 let index = -1;
@@ -52,7 +53,7 @@ var alphabet = [
 const words = [
     ["baleine", "eucalyptus", "coquillage", "elephant"],
     ["basketball", "tennis", "natation"],
-    ["tunis", "algerie", "paris"],
+    ["tunis", "alger", "paris"],
 ];
 
 const hints = [
@@ -63,9 +64,9 @@ const hints = [
         "De quel animal la taupe dorée est-elle une cousine éloignée?",
     ],
     [
-        "Dans quel sport s est illustré Michael Jordan ?",
-        "Dans quel sport s est illustrée Steffi Graf ?",
-        "vDans quel sport s est illustrée Dawn Fraser ?",
+        "Dans quel sport est illustré Michael Jordan ?",
+        "Dans quel sport est illustrée Steffi Graf ?",
+        "Dans quel sport est illustrée Dawn Fraser ?",
     ],
     ["capital de tunisie ?", "capital algerie ?", "capital de france ?"],
 ];
@@ -88,6 +89,7 @@ function showStartButton() {
 btnGroup.addEventListener("click", showStartButton);
 
 btnStart.addEventListener("click", () => {
+    canvas.classList.remove("d-none");
     btnGroup.classList.add("d-none");
     correctWord.classList.remove("d-none");
     gameMessage.textContent = "Start Guessing";
@@ -100,7 +102,7 @@ btnStart.addEventListener("click", () => {
     hint.classList.add("d-block");
     liveSection.classList.remove("d-none");
     liveSection.classList.add("d-block");
-    lives.textContent = 10;
+    lives.textContent = 8;
     createInput();
 });
 
@@ -170,9 +172,10 @@ function showAlphabets() {
                 if (!success) {
                     lives.textContent = Number(lives.textContent) - 1;
                     console.log(Number(lives.textContent) > 4);
-                    Number(lives.textContent) > 3 ? Draw(draws[step++]) : null;
-                    Number(lives.textContent) < 1 ? Draw(draws[step++]) : null;
-                    undefined === draws[step] ? (this.disabled = true) : null;
+                    Draw(draws[step++]);
+                    // Number(lives.textContent) > 3 ? Draw(draws[step++]) : null;
+                    // Number(lives.textContent) < 1 ? Draw(draws[step++]) : null;
+                    // undefined === draws[step] ? (this.disabled = true) : null;
                 }
                 result();
             }
@@ -207,7 +210,7 @@ function verifLetter() {}
 
 /******** play again  ************/
 PlayAgain.addEventListener("click", () => {
-    lives.textContent = 10;
+    lives.textContent = 8;
     liveSection.classList.add("d-none");
     PlayAgain.classList.add("d-none");
     document.body.classList.remove("bg-success");
@@ -218,7 +221,7 @@ PlayAgain.addEventListener("click", () => {
     // correctWord.classList.add("d-none");
     correctWord.replaceChildren();
     choosenCategory = "";
-
+    canvas.classList.add("d-none");
     letters.classList.add("d-none");
     hint.classList.add("d-none");
     gameMessage.textContent = "Choose your category";
@@ -229,21 +232,33 @@ PlayAgain.addEventListener("click", () => {
 
 /******** Draw Hangman  ************/
 
-const canvas = document.getElementById("hangman");
 const context = canvas.getContext("2d");
 
 clearCanvas = () => {
-    context.clearRect(0, 0, 200, 200);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 };
 
 Draw = (part) => {
     switch (part) {
-        case "gallows":
+        case "gallows1":
             context.strokeStyle = "#fff";
             context.lineWidth = 4;
             context.beginPath();
             context.moveTo(175, 225);
             context.lineTo(5, 225);
+            // context.moveTo(40, 225);
+            // context.lineTo(25, 5);
+            // context.lineTo(100, 5);
+            // context.lineTo(100, 25);
+            context.stroke();
+            break;
+
+        case "gallows2":
+            context.strokeStyle = "#fff";
+            context.lineWidth = 4;
+            context.beginPath();
+            // context.moveTo(175, 225);
+            // context.lineTo(5, 225);
             context.moveTo(40, 225);
             context.lineTo(25, 5);
             context.lineTo(100, 5);
@@ -311,7 +326,8 @@ Draw = (part) => {
 };
 
 const draws = [
-    "gallows",
+    "gallows1",
+    "gallows2",
     "head",
     "body",
     "rightHarm",

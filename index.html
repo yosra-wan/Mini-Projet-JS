@@ -1,68 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.scss" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body class="bg-dark text-white text-center mt-5">
+<body class="bg-dark text-white text-center mt-5">
     <h1>HANGMAN</h1>
     <h3 id="gameMessage">Choose your category</h3>
-    <div
-      class="btn-group mt-4"
-      id="btnGroup"
-      role="group"
-      aria-label="Basic radio toggle button group">
-      <input
-        type="radio"
-        class="btn-check"
-        name="category"
-        id="Animal"
-        autocomplete="off" />
-      <label class="btn btn-outline-light" for="Animal">Animal</label>
+    <div class="btn-group mt-4" id="btnGroup" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="category" id="Animal" autocomplete="off" />
+        <label class="btn btn-outline-light" for="Animal">Animal</label>
 
-      <input
-        type="radio"
-        class="btn-check"
-        name="category"
-        id="Sport"
-        autocomplete="off" />
-      <label class="btn btn-outline-light" for="Sport">Sport</label>
+        <input type="radio" class="btn-check" name="category" id="Sport" autocomplete="off" />
+        <label class="btn btn-outline-light" for="Sport">Sport</label>
 
-      <input
-        type="radio"
-        class="btn-check"
-        name="category"
-        id="Pays"
-        autocomplete="off" />
-      <label class="btn btn-outline-light" for="Pays">Pays</label>
+        <input type="radio" class="btn-check" name="category" id="Pays" autocomplete="off" />
+        <label class="btn btn-outline-light" for="Pays">Pays</label>
     </div>
     <br />
-    <button
-      id="startGame"
-      type="button"
-      class="btn d-none btn-outline-light mt-4">
+    <button id="startGame" type="button" class="btn d-none btn-outline-light mt-4">
       Start Game
     </button>
 
     <div id="Game">
-      <div id="Solution" class="d-flex flex-column">
-        <h3 class="d-none text-white" id="hint"></h3>
-        <div class="d-flex justify-content-center">
-          <div id="correctWord" class="input-group mb-5 w-50"></div>
-        </div>
-        <div id="alphabets" class="d-flex justify-content-center"></div>
-        <h5 class="d-none" id="liveSection">
-          You Have <span style="margin-right: 10px" id="lives"></span>lives
-        </h5>
-        <div id="canvas-div">
-          <canvas id="hangman">hangman</canvas>
+        <div id="Solution" class="d-flex flex-column">
+            <h3 class="d-none text-white" id="hint"></h3>
+            <div class="d-flex justify-content-center">
+                <div id="correctWord" class="input-group mb-5 w-50"></div>
+            </div>
+            <div id="alphabets" class="d-flex justify-content-center"></div>
+            <h5 class="d-none mt-2" id="liveSection">
+                You Have <span style="margin-right: 10px" id="lives"></span>lives
+            </h5>
+            <div id="canvas-div">
+                <canvas height="250" width="200" style="border: 1px solid white" id="hangman">hangman</canvas
+          >
         </div>
       </div>
 
